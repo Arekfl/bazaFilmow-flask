@@ -17,8 +17,8 @@ Aplikacja webowa do zarządzania bazą danych filmów, zbudowana przy użyciu Fl
 
 1. Sklonuj repozytorium:
 ```bash
-git clone https://github.com/Arekfl/bazaFilmow.git
-cd bazaFilmow
+git clone https://github.com/Arekfl/bazaFilmow-flask.git
+cd bazaFilmow-flask
 ```
 
 2. Utwórz wirtualne środowisko (opcjonalne)
@@ -27,7 +27,7 @@ cd bazaFilmow
 
 ## Uruchomienie
 
-1. Upewnij się, że jesteś w katalogu projektu: cd bazaFilmow
+1. Upewnij się, że jesteś w katalogu projektu: cd bazaFilmow-flask
 
 2. Uruchom aplikację: python app.py
 
@@ -37,7 +37,7 @@ cd bazaFilmow
 ## Struktura projektu
 
 ```
-bazaFilmow/
+bazaFilmow-flask/
 ├── app.py              # Główna aplikacja Flask
 ├── movies.db           # Baza danych SQLite
 ├── requirements.txt    # Zależności projektu
