@@ -13,8 +13,8 @@
 <!-- Milligram CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script src="script.js"></script>
-<link rel="stylesheet" href="styles.css">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
@@ -29,27 +29,24 @@
                 <div class="column">
                     <h3><i class="fa-solid fa-clapperboard"></i> Titles</h3>
                     <ul id="movieList">
-                        <li><input type="checkbox"> The Matrix, 1999, Keanou Reeves, Laurence Fishburne</input></li>
-                        <li><input type="checkbox"> Indiana Jones, 1989, Harrison FOrd, Sean Connery</input></li>
-                        <li><input type="checkbox"> Casino Royal, 2006, Daniel Craig, Eva Green</input></li>
+                        {% for movie in movies %}
+                        <li data-movie-id="{{ movie['ID'] }}">
+                            <input type="checkbox"> {{ movie['title'] }}, {{ movie['year'] }}, {{ movie['actors'] }}
+                        </li>
+                        {% endfor %}
                     </ul>
                     <button onclick="deleteSelected()"><i class="fa-solid fa-eraser"></i> Delete selected</button>
+                    <a href="/addMovie"><button><i class="fa-solid fa-circle-plus"></i> Add New Movie</button></a>
                 </div>
             
-                <div class="column">
-                    <h3>Add new movie</h3>
-                    Title: <input type="text" id="inputTitle" name="title"><br>
-                    Year: <input type="text" id="inputYear" name="year"><br>
-                    Actors: <input type="text" id="inputActors" name="actors"><br>
-                    <button onclick="addMovie()"><i class="fa-solid fa-circle-plus"></i> Add</button>
-                </div>
+
             </div>
         </div>
     </main>
     <hr>
     <footer>
         <div class="container">
-            &copy; 2024 My Movie Database
+            &copy; 2025 My Movie Database
         </div>
     </footer>
 </body>
